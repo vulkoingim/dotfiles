@@ -1,0 +1,6 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Aleksandar Aleksandrov
+	email = a.g.aleksandrov@gmail.com
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
