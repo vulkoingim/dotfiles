@@ -43,7 +43,7 @@
     "BSTMoveTreshold" : 2,
     "windowActionOnMouseMonitor" : false,
     "BTTHideFomControlStripWhenOpen" : false,
-    "BTTNumberOfStarts" : 24154,
+    "BTTNumberOfStarts" : 24165,
     "BTTForceNormalClickPressure3F" : 150,
     "showSiriRemoteTab" : true,
     "SIRIScrollSpeed" : 1,
@@ -155,7 +155,7 @@
     "showOtherTriggersTab" : true,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "C11DF359-7D36-4C3E-A9C9-C4B0FA4D8E9E",
+  "BTTPresetUUID" : "4286D351-375C-4FB4-A004-46CA0F2B34DC",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "BT.G",
