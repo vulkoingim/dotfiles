@@ -42,6 +42,7 @@ ZSH_THEME="geometry/geometry"
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_MAGIC_FUNCTIONS=true 
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
