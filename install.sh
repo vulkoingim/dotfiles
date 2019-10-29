@@ -40,6 +40,7 @@ brew install git-lfs
 brew install imagemagick --with-webp
 brew install pigz
 
+
 sudo xcodebuild -license accept
 
 brew cleanup
