@@ -129,7 +129,8 @@ if [ -f '/Users/aleksandar/google-cloud-sdk/completion.zsh.inc' ]; then . '/User
 
 source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh 
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 ## ONLY EVAL BEYOND THIS POINT
 eval "$(direnv hook zsh)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

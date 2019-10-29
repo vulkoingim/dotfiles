@@ -4,3 +4,7 @@
 	signingkey = 81E85FDC
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[color]
+	ui = true
+[color "status"]
+	changed = yellow
