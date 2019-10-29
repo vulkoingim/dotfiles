@@ -131,3 +131,5 @@ source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh
 
 ## ONLY EVAL BEYOND THIS POINT
 eval "$(direnv hook zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
