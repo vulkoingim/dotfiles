@@ -26,26 +26,30 @@ brew install bat
 brew install ripgrep
 brew install xsv
 
-# openssl
+# crypto
 brew install openssl
-
 brew cask install gpg-suite
 brew install git-crypt
 
 curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-269.0.0-darwin-x86_64.tar.gz | sudo tar xzf - | ./google-cloud-sdk/install.sh
 
+brew install coreutils
+brew install git-lfs
+brew install imagemagick --with-webp
+brew install pigz
 
-# BetterTouchTool.zip
+sudo xcodebuild -license accept
+
+brew cleanup
+# Keka https://www.keka.io/en/
+# BetterTouchTool https://folivora.ai/
 # Docker.dmg
-# Firefox 71.0b2.dmg
-# Flux.zip
-# Install Spotify.app/
-# LastPass.dmg
-# Slack-4.1.0-macOS.dmg
-# SpotifyInstaller.zip
+# Firefox 71.0b2.dmg https://www.mozilla.org/en-GB/firefox/developer/
+# Flux.zip  https://justgetflux.com/
+# Install Spotify.app/ https://www.spotify.com/uk/download/mac
+# Slack-4.1.0-macOS.dmg https://slack.com/intl/en-gb/downloads/mac
+# bazel-1.0.1-installer-darwin-x86_64.sh https://docs.bazel.build/versions/master/install-os-x.html
+# jetbrains-toolbox-1.16.6016.dmg https://www.jetbrains.com/toolbox-app/download/download-thanks.html
+
 # aleksandaraleksandrov-db.json
 # aleksandaraleksandrov.yubi
-# bazel-1.0.1-installer-darwin-x86_64.sh
-# files-WhatsApp.dmg
-# jetbrains-toolbox-1.16.6016.dmg
-# yubikey.pub
