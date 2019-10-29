@@ -1,0 +1,6 @@
+[user]
+	name = Aleksandar Aleksandrov
+	email = aleksandar@improbable.io
+	signingkey = 81E85FDC
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
