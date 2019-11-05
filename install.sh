@@ -2,6 +2,7 @@ brew update
 brew upgrade
 
 # oh-my-zsh
+brew install zsh-syntax-highlighting
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/geometry-zsh/geometry ~/.oh-my-zsh/themes/
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -39,6 +40,7 @@ brew install coreutils
 brew install git-lfs
 brew install imagemagick --with-webp
 brew install pigz
+brew install grep
 
 
 sudo xcodebuild -license accept
