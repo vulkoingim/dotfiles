@@ -453,10 +453,11 @@
     "Green Component" : 0.90980392156862744
   },
   "Ansi 8 Color" : {
-    "Red Component" : 0,
+    "Red Component" : 0.396078431372549,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.21176470588235294,
-    "Green Component" : 0.16862745098039217
+    "Blue Component" : 0.51372549019607838,
+    "Alpha Component" : 1,
+    "Green Component" : 0.4823529411764706
   },
   "Ansi 9 Color" : {
     "Red Component" : 0.79607843137254897,
@@ -487,7 +488,7 @@
     "Red Component" : 0.32436618208885193
   },
   "Use Italic Font" : true,
-  "HotKey Characters" : "§",
+  "HotKey Characters" : "0",
   "Foreground Color" : {
     "Green Component" : 0.50962930917739868,
     "Blue Component" : 0.51685798168182373,
@@ -819,6 +820,7 @@
   "Window Type" : 2,
   "Use Bright Bold" : false,
   "Has Hotkey" : true,
+  "HotKey Modifier Activation" : 0,
   "Cursor Text Color" : {
     "Green Component" : 0.15575926005840302,
     "Blue Component" : 0.19370138645172119,
@@ -884,7 +886,7 @@
   "Option Key Sends" : 0,
   "Blink Allowed" : false,
   "HotKey Window Animates" : true,
-  "HotKey Modifier Flags" : 262401,
+  "HotKey Modifier Flags" : 262144,
   "Ansi 15 Color" : {
     "Green Component" : 0.95794391632080078,
     "Blue Component" : 0.86405980587005615,
@@ -897,6 +899,7 @@
     "Red Component" : 0.14679534733295441
   },
   "Transparency" : 0.065389250086609424,
+  "HotKey Activated By Modifier" : false,
   "Background Color" : {
     "Green Component" : 0.11783610284328461,
     "Blue Component" : 0.15170273184776306,
@@ -912,6 +915,9 @@
   },
   "Use Tab Color" : false,
   "Columns" : 80,
+  "HotKey Alternate Shortcuts" : [
+
+  ],
   "Visual Bell" : true,
   "Custom Directory" : "No",
   "Thin Strokes" : 1,

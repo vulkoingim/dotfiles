@@ -28,6 +28,7 @@ brew install tig
 brew install bat
 brew install ripgrep
 brew install xsv
+brew install autojump
 
 # crypto
 brew install openssl

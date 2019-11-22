@@ -49,7 +49,7 @@ alias updateGoToVersion='function _updGo(){ cd /usr/local && sudo rm -fr go && c
 #   Set Paths
 #   ------------------------------------------------------------
 
-alias getLatestGoVersion="curl https://golang.org/VERSION?m=text"
+alias getLatestGoVersion="curl https://golang.org/VERSION?m=text | sed 's/go//'"
 
 JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/
 
@@ -191,12 +191,18 @@ _complete_ssh_hosts ()
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:/usr/local/opt/grep/libexec/gnubin:$PATH"
 
 # sync history between shell (arleady open ones)
-PROMPT_COMMAND='history -a; history -n;'
+#PROMPT_COMMAND='history -a; history -n;'
+
 export GPG_TTY=$(tty)
 
 export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
 
-export PATH="/improbable/tools/latest/mac:$HOME/bin:/usr/local/Cellar/openssl/1.0.2t/bin:$PATH"
+export PATH="$HOME/.improbable/imp-tool/subscriptions:$HOME/bin:/usr/local/Cellar/openssl/1.0.2t/bin:$PATH"
+
+alias latestTag="git ls-remote --tags  | sed 's/.*\///; s/\^{}//' | grep -oP '\d{8}-\d{4}-\d{4}' | sort | tail -n 1"
+alias genLatestPlaywright='go run . gen --tag_for_unpinned=$(latestTag) --output_dir pwgen'
+alias terraform='av terraform'
+

@@ -113,7 +113,8 @@ if [[ $#h -gt 0 ]]; then
     zstyle ':completion:*:slogin:*' hosts $h
 fi
 
-unsetopt share_history
+#unsetopt share_history
+setopt share_history
 
 #eval $(thefuck --alias)
 autoload -U +X bashcompinit && bashcompinit
@@ -128,6 +129,7 @@ if [ -f '/Users/aleksandar/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alek
 if [ -f '/Users/aleksandar/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aleksandar/google-cloud-sdk/completion.zsh.inc'; fi
 
 source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh 
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
