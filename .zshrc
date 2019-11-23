@@ -9,7 +9,6 @@ plugins=(autojump zsh-syntax-highlighting fzf zsh-autosuggestions kubectl)
 #[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.shi 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_profile
-source $HOME/.profile
 
 # User configuration
 # You may need to manually set your language environment
