@@ -4,7 +4,7 @@ alias sts="git status"
 alias gush="git push origin HEAD"
 alias gat="git add ."
 alias gull="git pull origin HEAD"
-alias prdir="cd /Users/vlk/projects"
+alias prdir="cd ~/projects"
 alias glog="git log"
 alias giff="git diff"
 alias giffs="git diff --staged"
@@ -27,8 +27,6 @@ alias gmt='function _gmt(){ git commit -m"$1";};_gmt'
 alias k8mini='kubectl config use-context minikube'
 alias cat='bat -p'
 alias chclient="clickhouse client"
-# added by Anaconda3 4.4.0 installer
-export PATH="/Users/vlk/anaconda/bin:$PATH"
 
 alias ovim="/usr/bin/vim"
 # version overrides
@@ -49,7 +47,7 @@ alias updateGoToVersion='function _updGo(){ cd /usr/local && sudo rm -fr go && c
 #   Set Paths
 #   ------------------------------------------------------------
 
-alias getLatestGoVersion="curl https://golang.org/VERSION?m=text"
+alias getLatestGoVersion="curl https://golang.org/VERSION?m=text | sed 's/go//'"
 
 JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/
 
@@ -94,20 +92,6 @@ alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /opt/google-cloud-sdk/path.bash.inc ]; then
-  source '/opt/google-cloud-sdk/path.zsh.inc'
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f /opt/google-cloud-sdk/completion.bash.inc ]; then
-  source '/opt/google-cloud-sdk/completion.zsh.inc'
-fi
-
-
-
 
 
 #   ---------------------------
@@ -164,7 +148,6 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
     }
 
 
-
 #==============================#
 #==AUTOCOMPLETE SSH Hostnames==#
 #==============================#
@@ -188,10 +171,19 @@ _complete_ssh_hosts ()
 }
 #compdef _complete_ssh_hosts ssh
 
-
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-export PATH="$HOME/.cargo/bin:$PATH"
 
 # sync history between shell (arleady open ones)
 PROMPT_COMMAND='history -a; history -n;'
+
+export GPG_TTY=$(tty)
+export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+export YUBI_KEY_ID=$(gpg --card-status | sed -nE 's/^Signature key.*(....) (....)$/\1\2/p')
+
+export PATH="$HOME/.cargo/bin:/usr/local/opt/grep/libexec/gnubin:$PATH"
+export PATH="$HOME/.improbable/imp-tool/subscriptions:$HOME/bin:/usr/local/Cellar/openssl/1.0.2t/bin:$PATH"
+
+alias latestTag="git ls-remote --tags  | sed 's/.*\///; s/\^{}//' | grep -oP '\d{8}-\d{4}-\d{4}' | sort | tail -n 1"
+alias genLatestPlaywright='go run . gen --tag_for_unpinned=$(latestTag) --output_dir pwgen'
+alias terraform='av terraform'

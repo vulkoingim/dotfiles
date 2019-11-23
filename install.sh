@@ -2,15 +2,22 @@ brew update
 brew upgrade
 
 # oh-my-zsh
-brew install zsh-syntax-highlighting
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone https://github.com/geometry-zsh/geometry ~/.oh-my-zsh/themes/
+
+brew install zsh-syntax-highlighting
+
+git clone https://github.com/vulkoingim/geometry ~/.oh-my-zsh/themes/
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 
 # FZF
 brew install fzf
 $(brew --prefix)/opt/fzf/install
 
+# Vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 
 # install rust
@@ -20,6 +27,9 @@ curl https://sh.rustup.rs -sSf | sh
 brew install direnv
 # terraform environments
 brew install tfenv
+
+brew cask install multipass
+brew cask install virtualbox
 
 # git tree view
 brew install tig
@@ -39,14 +49,21 @@ curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk
 
 brew install coreutils
 brew install git-lfs
-brew install imagemagick --with-webp
+brew install imagemagick 
 brew install pigz
 brew install grep
 
+brew install awscli
+brew cask install aws-vault
 
 sudo xcodebuild -license accept
 
 brew cleanup
+
+files=(".gitconfig" ".profile" ".bash_profile" ".vimrc" ".zprofile" ".zshenv" ".zshrc")
+for i in "${files[@]}";do
+	cp $i ~/
+done
 # Keka https://www.keka.io/en/
 # BetterTouchTool https://folivora.ai/
 # Docker.dmg
