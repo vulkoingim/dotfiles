@@ -53,6 +53,7 @@ brew install imagemagick
 brew install pigz
 brew install grep
 
+brew install kops
 brew install awscli
 brew cask install aws-vault
 
