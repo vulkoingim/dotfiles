@@ -9,6 +9,7 @@ plugins=(autojump zsh-syntax-highlighting fzf zsh-autosuggestions kubectl)
 #[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.shi 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_profile
+source $HOME/.profile
 
 # User configuration
 # You may need to manually set your language environment
@@ -51,7 +52,7 @@ source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh
 
 #gcloud
 ## The next line updates PATH for the Google Cloud SDK.
-if [ -f $HOM/google-cloud-sdk/path.bash.inc ]; then
+if [ -f $HOME/google-cloud-sdk/path.bash.inc ]; then
   source "$HOME/google-cloud-sdk/path.zsh.inc"
 fi
 
