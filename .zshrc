@@ -47,13 +47,11 @@ autoload -U +X bashcompinit && bashcompinit
 
 # iterm2 shell integrations
 source ~/.iterm2_shell_integration.zsh
-# aws CLI
-source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh 
 
-#gcloud
+#aws
 ## The next line updates PATH for the Google Cloud SDK.
-if [ -f $HOME/google-cloud-sdk/path.bash.inc ]; then
-  source "$HOME/google-cloud-sdk/path.zsh.inc"
+if [ -f /usr/local/share/zsh/site-functions/aws_zsh_completer.sh ]; then
+  source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh 
 fi
 
 # The next line enables shell command completion for gcloud.
