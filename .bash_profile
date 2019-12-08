@@ -181,7 +181,7 @@ export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
 export YUBI_KEY_ID=$(gpg --card-status | sed -nE 's/^Signature key.*(....) (....)$/\1\2/p')
 
-export PATH="$HOME/.cargo/bin:/usr/local/opt/grep/libexec/gnubin:$PATH"
+export PATH="$HOME/.cargo/bin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="$HOME/.improbable/imp-tool/subscriptions:$HOME/bin:/usr/local/Cellar/openssl/1.0.2t/bin:$PATH"
 
 alias latestTag="git ls-remote --tags  | sed 's/.*\///; s/\^{}//' | grep -oP '\d{8}-\d{4}-\d{4}' | sort | tail -n 1"
