@@ -52,6 +52,8 @@ brew install git-lfs
 brew install imagemagick 
 brew install pigz
 brew install grep
+brew install telnet
+brew isntall python 
 
 brew install kops
 brew install awscli
