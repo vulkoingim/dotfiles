@@ -1,6 +1,7 @@
 [user]
 	name = Aleksandar Aleksandrov
 	email = a.g.aleksandrov@gmail.com
+	signingkey = F12EE30B6244316F
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 [color]

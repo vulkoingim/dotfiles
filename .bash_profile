@@ -180,6 +180,8 @@ PROMPT_COMMAND='history -a; history -n;'
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
 export YUBI_KEY_ID=$(gpg --card-status | sed -nE 's/^Signature key.*(....) (....)$/\1\2/p')
+# switch yubikeys
+alias swykey='gpg-connect-agent "scd serialno" "learn --force" /bye'
 
 export PATH="$HOME/.cargo/bin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/Cellar/openssl/1.0.2t/bin:$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.improbable/imp-tool/subscriptions:$HOME/bin:/usr/local/Cellar/openssl/1.0.2t/bin:$PATH"
