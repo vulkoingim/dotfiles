@@ -42,7 +42,7 @@ alias lsize="du -shc *"
 
 alias ministart="minikube start --insecure-registry=192.168.99.1:5000 --cpus 3 --memory 3096"
 alias dockerstart="docker run -d -p 5000:5000 --restart=always --name registry registry:2"
-alias gbr="git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
+
 alias updateGoToVersion='function _updGo(){ cd /usr/local && sudo rm -fr go && curl https://storage.googleapis.com/golang/go"$1".darwin-amd64.tar.gz | sudo tar xzf - ;};_updGo'
 #   Set Paths
 #   ------------------------------------------------------------
@@ -180,8 +180,6 @@ PROMPT_COMMAND='history -a; history -n;'
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
 export YUBI_KEY_ID=$(gpg --card-status | sed -nE 's/^Signature key.*(....) (....)$/\1\2/p')
-# switch yubikeys
-alias swykey='gpg-connect-agent "scd serialno" "learn --force" /bye'
 
 export PATH="$HOME/.cargo/bin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/Cellar/openssl/1.0.2t/bin:$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.improbable/imp-tool/subscriptions:$HOME/bin:/usr/local/Cellar/openssl/1.0.2t/bin:$PATH"
@@ -189,3 +187,25 @@ export PATH="$HOME/.improbable/imp-tool/subscriptions:$HOME/bin:/usr/local/Cella
 alias latestTag="git ls-remote --tags  | sed 's/.*\///; s/\^{}//' | grep -oP '\d{8}-\d{4}-\d{4}' | sort | tail -n 1"
 alias genLatestPlaywright='go run . gen --tag_for_unpinned=$(latestTag) --output_dir pwgen'
 alias terraform='av terraform'
+
+alias gbr="git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
+# switch yubikeys
+alias swykey='gpg-connect-agent "scd serialno" "learn --force" /bye'
+mcommit=(
+    "¯\\_(ツ)_/¯"
+    "¯\\_㋡_/¯"
+    "(╯°Д°)╯︵/(.□ . \\)"
+    "(┛◉Д◉)┛彡┻━┻"
+    "┻━┻︵ \\(°□°)/ ︵ ┻━┻"
+    "(┛ಠ_ಠ)┛彡┻━┻"
+    "(ノಠ益ಠ)ノ彡┻━┻"
+    "(╯°□°)╯︵ ┻━┻"
+    "(˚Õ˚)ر ~~~~╚╩╩╝"
+    "ヽ(ຈل͜ຈ)ﾉ︵ ┻━┻"
+    "┬─┬ノ( º _ ºノ)"
+)
+#alias gmt='function _gmt(){ git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]";};_gmt'
+
+fct(){
+	git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]"
+}
