@@ -47,11 +47,13 @@ autoload -U +X bashcompinit && bashcompinit
 
 # iterm2 shell integrations
 source ~/.iterm2_shell_integration.zsh
+# aws CLI
+source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh 
 
-#aws
+#gcloud
 ## The next line updates PATH for the Google Cloud SDK.
-if [ -f /usr/local/share/zsh/site-functions/aws_zsh_completer.sh ]; then
-  source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh 
+if [ -f $HOME/google-cloud-sdk/path.bash.inc ]; then
+  source "$HOME/google-cloud-sdk/path.zsh.inc"
 fi
 
 # The next line enables shell command completion for gcloud.
@@ -71,4 +73,13 @@ fi
 
 ## ONLY EVAL BEYOND THIS POINT
 eval "$(direnv hook zsh)"
+
+
+source $HOME/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+export GO111MODULE=auto
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export GOROOT=/usr/local/go
 

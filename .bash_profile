@@ -27,12 +27,35 @@ alias gmt='function _gmt(){ git commit -m"$1";};_gmt'
 alias k8mini='kubectl config use-context minikube'
 alias cat='bat -p'
 alias chclient="clickhouse client"
-
+alias k="imp-kubectl"
+alias gen="go run . gen --tag_for_unpinned=20200107-1301-4591 --output_dir pwgen"
+#alias greset="git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))"
 alias ovim="/usr/bin/vim"
 # version overrides
 #alias vim="nvim"
+alias cdir="pwd | pbcopy"
 alias python="/usr/local/bin/python3"
 #alias pip="python -m pip"
+
+greset(){
+	git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
+}
+
+mcommit=(
+    "¯\\_(ツ)_/¯"
+    "¯\\_㋡_/¯"
+    "(╯°Д°)╯︵/(.□ . \\)"
+    "(┛◉Д◉)┛彡┻━┻"
+    "┻━┻︵ \\(°□°)/ ︵ ┻━┻"
+    "(┛ಠ_ಠ)┛彡┻━┻"
+    "(ノಠ益ಠ)ノ彡┻━┻"
+    "(╯°□°)╯︵ ┻━┻"
+    "(˚Õ˚)ر ~~~~╚╩╩╝"
+    "ヽ(ຈل͜ຈ)ﾉ︵ ┻━┻"
+    "┬─┬ノ( º _ ºノ)"
+)
+
+#alias fct='function _gmt(){ git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]";};_gmt'
 
 # find the top 10 largest directories
 alias largestdir="du -a /var | sort -n -r | head -n 10"
@@ -177,15 +200,46 @@ _complete_ssh_hosts ()
 # sync history between shell (arleady open ones)
 PROMPT_COMMAND='history -a; history -n;'
 
+export POD_NAMES='--no-headers -o custom-columns=":metadata.name"'
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
 export YUBI_KEY_ID=$(gpg --card-status | sed -nE 's/^Signature key.*(....) (....)$/\1\2/p')
-# switch yubikeys
-alias swykey='gpg-connect-agent "scd serialno" "learn --force" /bye'
 
-export PATH="$HOME/.cargo/bin:/usr/local/opt/grep/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/Cellar/openssl/1.0.2t/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:/usr/local/opt/grep/libexec/gnubin:$PATH"
 export PATH="$HOME/.improbable/imp-tool/subscriptions:$HOME/bin:/usr/local/Cellar/openssl/1.0.2t/bin:$PATH"
 
 alias latestTag="git ls-remote --tags  | sed 's/.*\///; s/\^{}//' | grep -oP '\d{8}-\d{4}-\d{4}' | sort | tail -n 1"
 alias genLatestPlaywright='go run . gen --tag_for_unpinned=$(latestTag) --output_dir pwgen'
-alias terraform='av terraform'
+#alias terraform='av terraform'
+# switch yubikeys
+alias swykey='gpg-connect-agent "scd serialno" "learn --force" /bye'
+
+alias cls="circle local presubmit"
+
+# istio workshop
+export ISTIO_VERSION=1.5.1
+export ARCHITECTURE=osx
+export ISTIO_INSTALL_DIR=$HOME/projects/istio/istio-$ISTIO_VERSION-$ARCHITECTURE
+
+export PATH="${HOME}/.pyenv/bin:${PATH}"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+showpvc(){
+	imp-kubectl $1 a get pods -o=json | jq -c '.items[] | {name: .metadata.name, namespace: .metadata.namespace, claimName: .spec |  select( has ("volumes") ).volumes[] | select( has ("persistentVolumeClaim") ).persistentVolumeClaim.claimName }'
+}
+
+fct(){
+	git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]"
+}
+
+b64(){
+	echo -n "$1" | base64 | pbcopy
+}
+
+b64d(){
+	echo -n "$1" | base64 -D | pbcopy
+}
+delPod(){
+	imp-kubectl $1 $2 get pods -o name | rg $3 | xargs -I {} imp-kubectl $1 $2 delete {}
+}
