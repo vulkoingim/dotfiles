@@ -36,6 +36,7 @@ alias ovim="/usr/bin/vim"
 alias cdir="pwd | pbcopy"
 alias python="/usr/local/bin/python3"
 #alias pip="python -m pip"
+alias gbr="git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
 
 greset(){
 	git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
@@ -65,7 +66,7 @@ alias lsize="du -shc *"
 
 alias ministart="minikube start --insecure-registry=192.168.99.1:5000 --cpus 3 --memory 3096"
 alias dockerstart="docker run -d -p 5000:5000 --restart=always --name registry registry:2"
-alias gbr="git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
+
 alias updateGoToVersion='function _updGo(){ cd /usr/local && sudo rm -fr go && curl https://storage.googleapis.com/golang/go"$1".darwin-amd64.tar.gz | sudo tar xzf - ;};_updGo'
 #   Set Paths
 #   ------------------------------------------------------------
