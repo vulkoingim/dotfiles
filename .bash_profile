@@ -36,7 +36,6 @@ alias ovim="/usr/bin/vim"
 alias cdir="pwd | pbcopy"
 alias python="/usr/local/bin/python3"
 #alias pip="python -m pip"
-alias gbr="git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
 
 greset(){
 	git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
@@ -66,7 +65,7 @@ alias lsize="du -shc *"
 
 alias ministart="minikube start --insecure-registry=192.168.99.1:5000 --cpus 3 --memory 3096"
 alias dockerstart="docker run -d -p 5000:5000 --restart=always --name registry registry:2"
-
+alias gbr="git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
 alias updateGoToVersion='function _updGo(){ cd /usr/local && sudo rm -fr go && curl https://storage.googleapis.com/golang/go"$1".darwin-amd64.tar.gz | sudo tar xzf - ;};_updGo'
 #   Set Paths
 #   ------------------------------------------------------------
@@ -77,7 +76,7 @@ JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/
 
 
 export GO111MODULE=on
-export GOPATH=$HOME/go
+export GOPATH=~/$HOME/go
 export GOBIN=$GOPATH/bin
 export GOROOT=/usr/local/go
 PATH=$PATH:/opt/apache-maven-3.3.9/bin:/opt/apache-cassandra-3.9/bin:/opt/protoc-3.6.1-osx-x86_64/bin:/usr/local/mysql/bin:/usr/local/php5/bin:$GOBIN:$GOPATH:$GOROOT/bin:/usr/local/sbin:$HOME/Library/Python/3.6/bin
@@ -216,6 +215,9 @@ alias genLatestPlaywright='go run . gen --tag_for_unpinned=$(latestTag) --output
 alias swykey='gpg-connect-agent "scd serialno" "learn --force" /bye'
 
 alias cls="circle local presubmit"
+
+
+
 
 # istio workshop
 export ISTIO_VERSION=1.5.1
