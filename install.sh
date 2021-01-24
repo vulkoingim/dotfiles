@@ -9,6 +9,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 bToInstall=(aom autoconf autojump automake awscli bandwhich bash bat bison cloc cmake coreutils cscope csshx direnv docbook docbook-xsl docker-credential-helper-ecr dog fping freetype fzf gdbm gettext ghostscript git git-crypt git-lfs glib gnu-getopt gnu-sed gradle grep gron helm icdiff icu4c ilmbase imagemagick jmeter jpeg jq kops krb5 kubernetes-cli libde265 libffi libheif libidn2 liblqr libomp libpng libtiff libtool libunistring libxml2 libyaml little-cms2 lua macvim md5sha1sum minikube mysql ncurses node oniguruma openexr openjdk openjpeg openssl@1.1 packer parallel pcre pcre2 pigz pkg-config postgresql protobuf protobuf@3.7 python@2 python@3.8 python@3.9 readline ripgrep ripgrep-all ruby shared-mime-info shellcheck sqlite tcl-tk telnet tfenv tig watch webp wget x265 xmlto xsv xz zlib zsh-syntax-highlighting paperkey qrencode zig)
 
+
 bCaskToInstall=(aws-vault google-cloud-sdk gpg-suite java maccy multipass vagrant virtualbox aws-sam-cli)
 
 for i in "${bToInstall[@]}";do
